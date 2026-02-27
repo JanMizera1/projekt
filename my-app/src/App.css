@@ -42,21 +42,24 @@
 }
 
 /* Kalkulačka alkoholu - styly */
+/* New color palette */
 :root {
-  --calc-accent: #646cff;
-  --calc-accent-2: #61dafb;
-  --calc-bg: rgba(255,255,255,0.02);
-  --card-border: rgba(255,255,255,0.04);
+  --bg-1: #0f1724;
+  --bg-2: linear-gradient(180deg,#0f1724 0%, #0b1220 100%);
+  --card: #0f1a2b;
+  --accent: #7c5cff;
+  --accent-2: #4dd0e1;
+  --muted: rgba(255,255,255,0.72);
 }
 
 .calculator {
   max-width: 880px;
   margin: 2rem auto;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-  border: 1px solid var(--card-border);
+  background: var(--bg-2);
+  border: none;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.8);
+  padding: 1.5rem;
   border-radius: 12px;
-  padding: 1.25rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.55);
   color: inherit;
   position: relative;
 }
@@ -158,14 +161,16 @@ input[type='number'], select, textarea {
 .promile {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--calc-accent);
+  color: var(--accent);
   line-height: 1;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 .promile-sub {
   font-size: 0.95rem;
   color: rgba(255,255,255,0.75);
   margin-top: 0.25rem;
+  color: var(--muted);
 }
 
 .sober-badge {
@@ -195,6 +200,13 @@ input[type='number'], select, textarea {
   width: 0%;
   background: linear-gradient(90deg, var(--calc-accent), var(--calc-accent-2));
   transition: width 0.7s ease;
+  animation: none;
+}
+
+/* bar animation */
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: var(--target); }
 }
 
 .marker {
@@ -274,10 +286,16 @@ input[type='number'], select, textarea {
   gap: 0.35rem;
 }
 
-/* make inputs and buttons look consistent */
 input[type='number'] {
   background: rgba(0,0,0,0.18);
   border: 1px solid rgba(255,255,255,0.06);
+  padding: 0.65rem 0.8rem;
+}
+
+/* responsive */
+@media (max-width: 720px) {
+  .calc-grid { grid-template-columns: 1fr; }
+  .promile { font-size: 2.4rem; }
 }
 
 @media (prefers-color-scheme: light) {
