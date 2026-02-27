@@ -40,3 +40,248 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Kalkulačka alkoholu - styly */
+:root {
+  --calc-accent: #646cff;
+  --calc-accent-2: #61dafb;
+  --calc-bg: rgba(255,255,255,0.02);
+  --card-border: rgba(255,255,255,0.04);
+}
+
+.calculator {
+  max-width: 880px;
+  margin: 2rem auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+  color: inherit;
+  position: relative;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.field label {
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+  color: rgba(255,255,255,0.85);
+}
+
+input[type='number'], select, textarea {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  color: inherit;
+  font: inherit;
+}
+
+.gender-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.gender-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.gender-group input[type='radio'] {
+  accent-color: var(--calc-accent);
+}
+
+.buttons {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.calculate {
+  background: linear-gradient(90deg, var(--calc-accent), #535bf2);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.calculate:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.result {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.03);
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.promile {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--calc-accent);
+  line-height: 1;
+}
+
+.promile-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  margin-top: 0.25rem;
+}
+
+.sober-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.45);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.timeline {
+  margin-top: 1rem;
+  height: 14px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.timeline .bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--calc-accent), var(--calc-accent-2));
+  transition: width 0.7s ease;
+}
+
+.marker {
+  position: absolute;
+  top: -6px;
+  width: 2px;
+  height: 26px;
+  background: #fff;
+  opacity: 0.9;
+}
+
+.time-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.note {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.72);
+}
+
+.row { display: flex; gap: 0.6rem; align-items: center; }
+
+.help {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.25rem;
+  margin-bottom: 0.45rem;
+}
+
+.actions {
+  margin-top: 0.8rem;
+}
+
+.back-button {
+  background: transparent;
+  color: var(--calc-accent);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.back-button:hover { background: rgba(255,255,255,0.02); }
+
+.form-page .result {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-page .result-panel {
+  margin-top: 0.6rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.graph-area {
+  margin-top: 0.25rem;
+  width: 100%;
+}
+
+.result-text {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* make inputs and buttons look consistent */
+input[type='number'] {
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+@media (prefers-color-scheme: light) {
+  .calculator { box-shadow: 0 8px 20px rgba(50,60,80,0.06); border-color: rgba(0,0,0,0.06); }
+  .result { background: #fff; color: #213547; }
+  .sober-badge { background: rgba(255,255,255,0.9); color: #213547; }
+}
